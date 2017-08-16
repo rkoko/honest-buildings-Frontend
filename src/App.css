@@ -1,0 +1,21 @@
+
+
+
+.loginform, .signupform {
+  height: 1000px;
+  background-image: url('https://s-media-cache-ak0.pinimg.com/originals/86/e4/c4/86e4c4cdac9d6df54233fe37772cc756.jpg');
+}
+
+.ui form{
+  margin-top: 200px;
+}
+
+.homepage {
+  height: 1200px;
+  background-image: url('http://www.viptrip.co.nz/start/wp-content/uploads/2014/06/MIA-APP.jpg');
+}
+
+.navbar {
+   margin-bottom: 1%;
+   background-color: transparent;
+}
