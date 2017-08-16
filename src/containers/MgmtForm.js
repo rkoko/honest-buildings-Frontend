@@ -4,9 +4,7 @@ import { Button, Form } from 'semantic-ui-react'
 class MgmtForm extends Component{
 
   state = {
-    name: '',
-    email: '',
-    password: ''
+    name: ''
   }
 
   handleChange = (event) =>{

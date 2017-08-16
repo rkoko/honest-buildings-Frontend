@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { Button, Form, Grid } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
+import AuthAdapter from '../auth/authAdapter'
+
 
 
 export default class UserForm extends Component{
@@ -23,16 +25,10 @@ export default class UserForm extends Component{
     })
   }
 
+
   handleSubmit = () => {
-    console.log(this.state)
-    fetch('http://localhost:3000/api/v1/users/signup', {
-      method: 'post',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(this.state)})
-    .then(res => res.json())
-    .then(res => {
+    AuthAdapter.signUp(this.state)
+    .then(res =>{
       localStorage.setItem('jwt', res.jwt)
       this.context.router.history.push('/home')
     })

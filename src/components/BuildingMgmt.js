@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Button} from 'semantic-ui-react'
 import { NavLink, Route } from 'react-router-dom'
+import { getMgmtById } from '../apiAdapters/apiAdapters'
 
 
 class BuildingMgmt extends Component{
@@ -17,9 +18,9 @@ class BuildingMgmt extends Component{
     }
   }
 
+
 componentWillMount(){
-  fetch(`http://localhost:3000/api/v1/building_mgmts/${this.state.id}`)
-  .then(data => data.json())
+  getMgmtById(this.state.id)
   .then(result => this.setState({
     mgmtName: result.building_mgmt.name,
     avg_rating: result.avg_rating,

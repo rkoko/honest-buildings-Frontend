@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Form, Rating } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
+import { postForm } from '../apiAdapters/apiAdapters'
 
 
 class ReviewForm extends Component {
@@ -50,19 +51,10 @@ class ReviewForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    fetch('http://localhost:3000/api/v1/buildings/new', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-        'content-type': 'application/json',
-        'accept': 'application/json',
-        'Authorization': localStorage.getItem('jwt')
-      }
-    }).then(res => res.json())
+    postForm(this.state)
     .then((res) => {
       this.props.history.push(`/buildings/${this.state.building_id}`)
       this.props.newReviewSubmit(res)
-      console.log(res)
     })
   }
 

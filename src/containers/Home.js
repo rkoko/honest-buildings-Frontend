@@ -3,6 +3,7 @@ import Search from '../containers/Search'
 import Nav from '../components/nav'
 import FeaturedBuildings from '../components/FeaturedBuildings'
 import BuildingList from '../components/BuildingList'
+import { getBuildingAddresses } from '../apiAdapters/apiAdapters'
 
 
 class Home extends Component{
@@ -12,8 +13,7 @@ class Home extends Component{
   }
 
   componentDidMount(){
-    fetch(`http://localhost:3000/api/v1/buildings/addresses`)
-    .then(res => res.json())
+    getBuildingAddresses()
     .then(data => this.setState({buildings: data}))
   }
 

@@ -3,6 +3,7 @@ import {Button} from 'semantic-ui-react'
 import { NavLink, Route } from 'react-router-dom'
 import  ReviewForm  from '../containers/ReviewForm'
 import BuildingReviews from './BuildingReviews'
+import { getBuildingById } from '../apiAdapters/apiAdapters'
 import Nav from './nav'
 
 class Building extends Component{
@@ -19,9 +20,8 @@ class Building extends Component{
     }
   }
 
-  componentWillMount(){
-    fetch(`http://localhost:3000/api/v1/buildings/${this.state.id}`)
-    .then(data => data.json())
+  componentWillMount() {
+    getBuildingById(this.state.id)
     .then(result => this.setState({
       currentAddress: result.building.street_address,
       currentNeighborhood: result.building.neighborhood,

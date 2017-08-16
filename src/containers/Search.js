@@ -20,7 +20,7 @@ export default class Search extends Component {
 
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
           <Input  fluid icon='search' placeholder='Search for an address' type="text"
             value={this.searchTerm} onChange={this.handleChange}
