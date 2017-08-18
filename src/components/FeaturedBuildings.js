@@ -1,11 +1,13 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 
 const FeaturedBuildings = () => (
-  <div>
-    <h2><font color="white">Featured Buildings</font></h2>
-    <Card.Group>
-
+  <div className='featured-buildings'>
+    <h2>Featured Buildings</h2>
+    <Grid>
+      <Grid.Column width={3}></Grid.Column>
+      <Grid.Column width={10}>
+    <Card.Group itemsPerRow={3}>
         <Card
           href='/buildings/12'
           header='50 Prince Street'
@@ -25,7 +27,11 @@ const FeaturedBuildings = () => (
           meta='Gramercy Park'
           description='A pre-war mid-rise building offering laundry facilities. The apartments have very high ceilings.'
         />
+
       </Card.Group>
+      </Grid.Column>
+      <Grid.Column width={3}></Grid.Column>
+      </Grid>
     </div>
 )
 

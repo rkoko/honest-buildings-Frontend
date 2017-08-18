@@ -87,7 +87,7 @@ handleLogout = () => {
               <Route path="/signup" render={() => <SignupForm /> }/>
               <Route path="/mgmt-signup" render={()=> <MgmtForm />} />
               <Route path="/buildings/:id" component={Auth(Building, {history: history, handleLogout: this.handleLogout})}/>
-              <Route path="/building_mgmts/:id" component={Auth(BuildingMgmt)}/>
+              <Route path="/building_mgmts/:id" component={Auth(BuildingMgmt, {handleLogout: this.handleLogout})}/>
               <Route path="/home" component={Auth(Home, {handleLogout: this.handleLogout})} />
             </Switch>
           </div>

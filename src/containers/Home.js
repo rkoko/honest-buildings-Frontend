@@ -19,7 +19,8 @@ class Home extends Component{
 
   onSearchSubmit = (searchTerm) =>{
     this.setState({
-      searchResults: this.state.buildings.filter(building => building.street_address.toLowerCase().includes(searchTerm.toLowerCase()))
+      searchResults: this.state.buildings.filter(building => building.street_address.toLowerCase().includes(searchTerm.toLowerCase()) || building.neighborhood.toLowerCase().includes(searchTerm.toLowerCase())
+    ) 
     })
   }
 
@@ -27,16 +28,24 @@ class Home extends Component{
   render() {
     return(
       <div className='homepage'>
-        <Nav handleLogout={this.props.handleLogout}/>
-        <div className='ui container'>
+        <div className='hero-image'>
+          <Nav handleLogout={this.props.handleLogout}/>
+          <div className='ui container'>
+              <div className='hero-text' >
+              <h2>Help us guide you home...</h2>
+            </div>
+              <Search handleSearchSubmit={this.onSearchSubmit}/>
 
-          <Search handleSearchSubmit={this.onSearchSubmit}/>
-          <br/>
-          <br/>
-          <br/>
-          <BuildingList buildings={this.state.searchResults}/>
-          <FeaturedBuildings />
+          </div>
         </div>
+
+          <div>
+                <br/>
+                <br/>
+                <br/>
+                <BuildingList buildings={this.state.searchResults}/>
+                <FeaturedBuildings />
+              </div>
       </div>
     )
   }

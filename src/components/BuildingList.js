@@ -1,13 +1,22 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { List, Segment } from 'semantic-ui-react'
+
 
 function generateNavlink(building) {
   return (
-    <li key={building.id}>
-      <NavLink to={`/buildings/${building.id}`}>{building.street_address}</NavLink>
-    </li>
+    <Segment>
+      <List divided relaxed>
+          <NavLink to={`/buildings/${building.id}`}>
+            <List.Item><List.Content>
+                <List.Header>{building.street_address} - {building.neighborhood}</List.Header>
+            </List.Content></List.Item>
+          </NavLink>
+      </List>
+    </Segment>
   )
 }
+
 
 const BuildingList = ({buildings}) => {
 

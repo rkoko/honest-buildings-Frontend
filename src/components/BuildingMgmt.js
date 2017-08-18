@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Button} from 'semantic-ui-react'
 import { NavLink, Route } from 'react-router-dom'
 import { getMgmtById } from '../apiAdapters/apiAdapters'
+import Nav from './nav'
 
 
 class BuildingMgmt extends Component{
@@ -30,20 +31,20 @@ componentWillMount(){
 }
 
   render(){
-    console.log(this.state)
-    return(
-      <div className='ui container' >
-        <h4>{this.state.mgmtName}</h4>
-          <p>{this.state.avg_rating}/5 star rating</p>
-          <p>manages {this.state.buildings.length} other buildings </p>
-          <p>List their reviews or their buildings?</p>
+    // debugger
+    return(this.state.buildings.length > 0 ?
+      <div>
+        <Nav handleLogout={this.props.handleLogout}/>
+        <div className='ui container' >
+          <h2>{this.state.mgmtName}</h2>
+            <p>{this.state.avg_rating}/5 star rating</p>
+            <p>Manages {this.state.buildings.length - 1} other buildings: </p>
+            <ul>
+              {this.state.buildings.map(building => <li><NavLink to={`/buildings/${building.id}`}>{building.street_address}  </NavLink></li>)}
+            </ul>
+        </div>
+      </div> : null
 
-        {/* <ul>
-        Reviews: {this.state.reviews.map(review =>(
-          <li key={review.id}>{review.body}</li>)
-        )}
-        </ul> */}
-      </div>
     )
   }
 

@@ -20,11 +20,19 @@ export default class Search extends Component {
 
 
   render() {
-    // console.log(this.state);
     return (
-          <Input  fluid icon='search' placeholder='Search for an address' type="text"
-            value={this.searchTerm} onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}/>
+
+      <Input
+        className='searchbar'
+        fluid icon='search'
+        size='massive'
+        placeholder='Search a street or neighborhood'
+        type="text"
+        value={this.searchTerm}
+        onChange={this.handleChange}
+        onKeyPress={this.handleKeyPress}
+      />
+
         )
   }
 }

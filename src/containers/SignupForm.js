@@ -42,8 +42,7 @@ export default class UserForm extends Component{
           <Grid.Column>
 
       <Form onSubmit={this.handleSubmit}>
-
-        <Form.Field>
+        <Form.Field >
           <label>username</label>
           <input name="username" placeholder="username"
           type="text"

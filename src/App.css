@@ -1,6 +1,5 @@
 
 
-
 .loginform, .signupform {
   height: 1000px;
   background-image: url('https://s-media-cache-ak0.pinimg.com/originals/86/e4/c4/86e4c4cdac9d6df54233fe37772cc756.jpg');
@@ -10,12 +9,50 @@
   margin-top: 200px;
 }
 
-.homepage {
-  height: 1200px;
-  background-image: url('http://www.viptrip.co.nz/start/wp-content/uploads/2014/06/MIA-APP.jpg');
+.reviewform {
+  margin-top: 20px !important;
 }
+
 
 .navbar {
    margin-bottom: 1%;
    background-color: transparent;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+}
+
+.rating {
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+
+.featured-buildings h2 {
+  text-align: center;
+}
+
+.hero-image {
+  background-image: url('./images/window.jpg');
+  height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center !important;
+  color: white;
+  margin-top: 250px !important;
+}
+
+.hero-text h2{
+  font-size: 45px;
+}
+
+
+.searchbar {
+  margin-top: 30px;
 }
