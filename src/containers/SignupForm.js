@@ -42,14 +42,14 @@ export default class UserForm extends Component{
           <Grid.Column>
 
       <Form onSubmit={this.handleSubmit}>
-        <Form.Field >
+        <Form.Field required>
           <label>username</label>
           <input name="username" placeholder="username"
           type="text"
         onChange={this.handleInputChange} />
         </Form.Field>
 
-        <Form.Field>
+        <Form.Field required >
           <label>password</label>
           <input name="password" placeholder="password"
           type="password"
@@ -57,7 +57,7 @@ export default class UserForm extends Component{
       />
         </Form.Field>
 
-        <Form.Field>
+        <Form.Field required>
           <label>email</label>
           <input name="email" placeholder="email"
           type="text"

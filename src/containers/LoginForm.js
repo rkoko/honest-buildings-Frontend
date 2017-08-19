@@ -27,12 +27,12 @@ class LoginForm extends Component {
       <Grid className='grid' centered columns={3}>
         <Grid.Column>
           <Form onSubmit={this.handleSubmit}>
-            <Form.Field>
+            <Form.Field required>
               <label>Username</label>
               <input name='username' placeholder='Username'
                onChange={this.handleChange} />
             </Form.Field>
-            <Form.Field>
+            <Form.Field required>
               <label>Password</label>
               <input type='password' name='password' placeholder='Password'
                onChange={this.handleChange}/>

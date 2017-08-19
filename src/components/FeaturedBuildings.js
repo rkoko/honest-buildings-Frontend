@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid, Icon, Image } from 'semantic-ui-react'
 
 const FeaturedBuildings = () => (
   <div className='featured-buildings'>
@@ -9,14 +9,15 @@ const FeaturedBuildings = () => (
       <Grid.Column width={10}>
     <Card.Group itemsPerRow={3}>
         <Card
+          image='../src/images/living_room.jpg'
+          src='../images/fitz.jpg'
           href='/buildings/12'
           header='50 Prince Street'
           meta='NoLiTa'
           description='A modern mid-rise elevator building offering laundry facilities.'
         />
-
         <Card
-          href='/buildings/1393'
+          href='/buildings/1390'
           header='171 Clinton Street'
           meta='Brooklyn Heights'
           description='A low-rise landmark walk-up building.'
