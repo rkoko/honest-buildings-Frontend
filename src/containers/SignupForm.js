@@ -13,7 +13,8 @@ export default class UserForm extends Component{
   state = {
     username: '',
     password: '',
-    email: ''
+    email: '',
+    errorMsgs:[]
   }
 
   handleInputChange = (event) => {
@@ -28,14 +29,19 @@ export default class UserForm extends Component{
 
   handleSubmit = () => {
     AuthAdapter.signUp(this.state)
-    .then(res =>{
-      localStorage.setItem('jwt', res.jwt)
-      this.context.router.history.push('/home')
+    .then(
+      res =>{
+        if (res.errors){
+          this.setState({errorMsgs: res.errors})
+        }else{
+          localStorage.setItem('jwt', res.jwt)
+          this.context.router.history.push('/home')
+        }
     })
+
   }
 
   render(){
-
     return(
       <div className='signupform'>
         <Grid className='grid' centered columns={3}>
@@ -67,6 +73,7 @@ export default class UserForm extends Component{
 
 
         <Button>Sign up</Button>
+        {this.state.errorMsgs.map((error)=> <div className="error-msgs">{error}</div>)}
       </Form>
     </Grid.Column>
   </Grid>

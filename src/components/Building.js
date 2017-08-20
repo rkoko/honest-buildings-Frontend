@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Header, Modal} from 'semantic-ui-react'
+import {Button, Header, Modal, Segment} from 'semantic-ui-react'
 import { NavLink, Route } from 'react-router-dom'
 import  ReviewForm  from '../containers/ReviewForm'
 import BuildingReviews from './BuildingReviews'
@@ -16,7 +16,8 @@ class Building extends Component{
       currentMgmtId: '',
       currentMgmt: '',
       currentRating: '',
-      currentReviews: []
+      currentReviews: [],
+      modalOpen: false
     }
   }
 
@@ -32,8 +33,15 @@ class Building extends Component{
     ))
   }
 
+  avgRatingBuilding(){
+    return this.state.currentReviews
+    .map(rev => rev.avg_rating)
+    .reduce((a,b) => (a + b)) / this.state.currentReviews.length
+  }
+
   newReviewSubmit = (review) => {
-    this.setState({currentReviews: [review, ...this.state.currentReviews]})
+    this.setState({currentReviews: [review, ...this.state.currentReviews]});
+    this.setState({currentRating: this.avgRatingBuilding()})
   }
 
   render() {
@@ -42,11 +50,11 @@ class Building extends Component{
         <Nav handleLogout={this.props.handleLogout}/>
         <div className='ui container'>
           <div className='buiding-page-header'>
-            <h2>{this.state.currentAddress}</h2>
+          <Segment>  <h2>{this.state.currentAddress}</h2></Segment>
               <p>{this.state.currentNeighborhood}, city, state, zip</p>
           </div>
           <div className='rating'>
-            <p>{this.state.currentRating}/5 stars
+            <p>{Math.round(this.state.currentRating*100)/100}/5 stars
                <Modal trigger={<Button size='mini'>More</Button>}>
                <Modal.Header>Rating Details</Modal.Header>
                <Modal.Content>
@@ -62,15 +70,16 @@ class Building extends Component{
             </Modal>
             </p>
           </div>
-          <p>street address: {this.state.currentAddress} </p>
 
           <p>mgmt: <NavLink to={`/building_mgmts/${this.state.currentMgmtId}`}>{this.state.currentMgmt}</NavLink></p>
 
-          <NavLink to={`${window.location.pathname}/new-review`}>
-            <Button size='small'>Write a review</Button>
-          </NavLink>
+          <Modal trigger = {<Button size='small' onClick={() => {this.setState({modalOpen: true})}}>Write a review</Button>} open={this.state.modalOpen}>
+          <Modal.Header>Rate {this.state.currentAddress}</Modal.Header>
+          <Modal.Content>
+            <ReviewForm newReviewSubmit={this.newReviewSubmit} building_id={this.state.id} mgmt_id={this.state.currentMgmtId} history={this.props.history} closeModal={() => {this.setState({modalOpen: false})}}/>
+          </Modal.Content>
+        </Modal>
 
-          <Route path="/buildings/:id/new-review" render={({match})=> <ReviewForm newReviewSubmit={this.newReviewSubmit} match={match} building_id={this.state.id} mgmt_id={this.state.currentMgmtId} history={this.props.history}/>} />
           <h4>Building Reviews: </h4>
           <BuildingReviews currentReviews={this.state.currentReviews}/>
         </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button} from 'semantic-ui-react'
+import { Button, Segment } from 'semantic-ui-react'
 import { NavLink, Route } from 'react-router-dom'
 import { getMgmtById } from '../apiAdapters/apiAdapters'
 import Nav from './nav'
@@ -36,11 +36,11 @@ componentWillMount(){
       <div>
         <Nav handleLogout={this.props.handleLogout}/>
         <div className='ui container' >
-          <h2>{this.state.mgmtName}</h2>
+        <Segment><h2>{this.state.mgmtName}</h2></Segment>
             <p>{this.state.avg_rating}/5 star rating</p>
             <p>Manages {this.state.buildings.length - 1} other buildings: </p>
             <ul>
-              {this.state.buildings.map(building => <li><NavLink to={`/buildings/${building.id}`}>{building.street_address}  </NavLink></li>)}
+              {this.state.buildings.map(building => <li><NavLink to={`/buildings/${building.id}`}>{building.street_address}</NavLink></li>)}
             </ul>
         </div>
       </div> : null

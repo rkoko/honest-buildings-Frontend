@@ -20,15 +20,17 @@ class Home extends Component{
   onSearchSubmit = (searchTerm) =>{
     this.setState({
       searchResults: this.state.buildings.filter(building => building.street_address.toLowerCase().includes(searchTerm.toLowerCase()) || building.neighborhood.toLowerCase().includes(searchTerm.toLowerCase())
-    ) 
+    )
     })
   }
 
 
   render() {
+    let heroClasses = this.state.searchResults.length === 0 ? "hero-image" : "hero-image short";
+    console.log(heroClasses)
     return(
       <div className='homepage'>
-        <div className='hero-image'>
+        <div className={heroClasses}>
           <Nav handleLogout={this.props.handleLogout}/>
           <div className='ui container'>
               <div className='hero-text' >

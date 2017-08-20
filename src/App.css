@@ -42,6 +42,14 @@ h2 {
   position: relative;
 }
 
+.hero-image.short {
+  height: 200px;
+}
+
+.hero-image.short .hero-text {
+  display: none;
+}
+
 .hero-text {
   text-align: center !important;
   color: white;
@@ -52,6 +60,9 @@ h2 {
   font-size: 45px;
 }
 
+.error-msgs{
+  color: red;
+}
 
 .searchbar {
   margin-top: 30px;

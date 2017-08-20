@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Rating } from 'semantic-ui-react'
+import { Button, Form, Rating, Modal } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 import { postForm } from '../apiAdapters/apiAdapters'
 
@@ -55,6 +55,7 @@ class ReviewForm extends Component {
     .then((res) => {
       this.props.history.push(`/buildings/${this.state.building_id}`)
       this.props.newReviewSubmit(res)
+      this.props.closeModal()
     })
   }
 
@@ -87,11 +88,9 @@ class ReviewForm extends Component {
         </Form.Field>
         <Form.TextArea required label='Your review' name="body" placeholder="Tell us more..." onChange={this.handleChange} />
 
-        <Button>Submit Review</Button>
-        <NavLink to={`/buildings/${this.props.match.params.id}`}><Button>Cancel</Button></NavLink>
-
+        <Button >Submit Review</Button>
+        <Button onClick={this.props.closeModal}>Cancel</Button>
       </Form>
-
     </div>
     )
   }
