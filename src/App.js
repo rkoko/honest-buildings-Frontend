@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from './containers/LoginForm'
 import SignupForm from './containers/SignupForm'
-import ReviewForm from './containers/ReviewForm'
 import MgmtForm from './containers/MgmtForm'
 import Auth from './auth/authorize'
 import AuthAdapter from './auth/authAdapter'

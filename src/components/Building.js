@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Button, Header, Modal, Segment, Card, Icon, Rating} from 'semantic-ui-react'
-import { NavLink, Route } from 'react-router-dom'
+import {Button, Modal, Card, Icon, Rating} from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
 import  ReviewForm  from '../containers/ReviewForm'
 import BuildingReviews from './BuildingReviews'
 import { getBuildingById } from '../apiAdapters/apiAdapters'
@@ -70,10 +70,10 @@ class Building extends Component{
                   {this.state.currentMgmt}
                 </Card.Header>
                 <Card.Meta>
-                  bla
+                  add in current rating of mgmt co 
                 </Card.Meta>
                 <Card.Description>
-                  Manages 165 other buildings
+                  add in # of buildings they manage
                 </Card.Description>
             </Card.Content>
           </Card>

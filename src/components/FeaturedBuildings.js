@@ -1,9 +1,9 @@
 import React from 'react'
-import { Card, Grid, Icon, Image } from 'semantic-ui-react'
+import { Card, Grid, Image } from 'semantic-ui-react'
 
 const FeaturedBuildings = () => (
   <div className='featured-buildings'>
-    <h2>Featured Buildings</h2>
+    <h2>Featured Rental Buildings</h2>
     <Grid>
       <Grid.Column width={3}></Grid.Column>
       <Grid.Column width={10}>

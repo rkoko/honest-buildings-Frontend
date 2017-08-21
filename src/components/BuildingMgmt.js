@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import { Button, Segment } from 'semantic-ui-react'
-import { NavLink, Route } from 'react-router-dom'
+import { Segment } from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
 import { getMgmtById } from '../apiAdapters/apiAdapters'
 import Nav from './nav'
 

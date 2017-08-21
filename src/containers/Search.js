@@ -26,7 +26,7 @@ export default class Search extends Component {
         className='searchbar'
         fluid icon='search'
         size='massive'
-        placeholder='Search a street or neighborhood'
+        placeholder='Search a street or neighborhood in NYC'
         type="text"
         value={this.searchTerm}
         onChange={this.handleChange}

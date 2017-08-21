@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Rating, Modal } from 'semantic-ui-react'
-import { NavLink } from 'react-router-dom'
+import { Button, Form, Rating } from 'semantic-ui-react'
 import { postForm } from '../apiAdapters/apiAdapters'
 
 
