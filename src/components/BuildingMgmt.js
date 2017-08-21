@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Grid, Card, Rating } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 import { getMgmtById } from '../apiAdapters/apiAdapters'
 import Nav from './nav'
@@ -13,6 +13,7 @@ class BuildingMgmt extends Component{
     this.state={
       id: window.location.pathname.split("/")[2],
       mgmtName: '',
+      mgmtDetails: '',
       avg_rating: '',
       buildings: '',
       reviews: ''
@@ -24,27 +25,36 @@ componentWillMount(){
   getMgmtById(this.state.id)
   .then(result => this.setState({
     mgmtName: result.building_mgmt.name,
+    mgmtDetails: result.building_mgmt.details,
     avg_rating: result.avg_rating,
     buildings: result.buildings,
     reviews: result.reviews
   }))
 }
 
+
   render(){
-    // debugger
+
     return(this.state.buildings.length > 0 ?
       <div>
         <Nav handleLogout={this.props.handleLogout}/>
         <div className='ui container' >
         <Segment><h2>{this.state.mgmtName}</h2></Segment>
-        {this.state.avg_rating > 0 ? <p>{this.state.avg_rating}/5 star rating</p> : <p> No rating yet - would you like to leave a review for one of their buildings? </p>}
+        {this.state.avg_rating > 0 ? <p> {this.state.avg_rating}/5 star rating</p> : <p> No rating yet - would you like to leave a review for one of their buildings? </p>}
+            <p>Manages {this.state.buildings.length} total buildings: </p>
+            <Grid>
+              <Grid.Column width={10}>
+                {this.state.buildings.map(building => <Segment><NavLink to={`/buildings/${building.id}`}>{building.street_address}, {building.neighborhood}</NavLink></Segment>)}
+              </Grid.Column>
 
+              <Grid.Column width={4}>
+                <div className='mgmtDetails'>
+                {this.state.mgmtDetails.split("\n").map((line)=>
+              <p>{line}</p>)}
+              </div>
+              </Grid.Column>
 
-
-            <p>Manages {this.state.buildings.length - 1} other buildings: </p>
-            <ul>
-              {this.state.buildings.map(building => <li><NavLink to={`/buildings/${building.id}`}>{building.street_address}</NavLink></li>)}
-            </ul>
+            </Grid>
         </div>
       </div> : null
 

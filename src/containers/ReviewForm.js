@@ -12,7 +12,8 @@ class ReviewForm extends Component {
     body: '',
     comment: 'comment',
     building_mgmt_id: '' ,
-    building_id: ''
+    building_id: '',
+    errorMsgs: ''
   }
 
   handleChange = (event) => {
@@ -52,9 +53,13 @@ class ReviewForm extends Component {
     event.preventDefault()
     postForm(this.state)
     .then((res) => {
-      this.props.history.push(`/buildings/${this.state.building_id}`)
-      this.props.newReviewSubmit(res)
-      this.props.closeModal()
+      if (res.errors){
+          this.setState({errorMsgs: res.errors})
+      }else{
+        this.props.history.push(`/buildings/${this.state.building_id}`)
+        this.props.newReviewSubmit(res)
+        this.props.closeModal()
+      }
     })
   }
 

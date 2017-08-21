@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.6.0",
+    "google-map-react": "^0.24.0",
     "history": "^4.6.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
+    "react-chartjs-2": "^2.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.11",

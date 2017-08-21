@@ -16,7 +16,7 @@ const FeaturedBuildings = () => (
           description='A luxury rental in the heart of downtown.'
         />
         <Card
-          image='https://b0bdffc5ca1d7d304f95-3fa4ce10ec81ee7ebea03f3b3c3703dd.ssl.cf2.rackcdn.com/0NQKJgjLForipo.jpg'
+          image='http://s2.r29static.com//bin/entry/5e9/x,80/1412000/image.jpg'
           href='/buildings/1390'
           header='171 Clinton Street'
           meta='Brooklyn Heights'

@@ -27,7 +27,6 @@ class Home extends Component{
 
   render() {
     let heroClasses = this.state.searchResults.length === 0 ? "hero-image" : "hero-image short";
-    console.log(heroClasses)
     return(
       <div className='homepage'>
         <div className={heroClasses}>
