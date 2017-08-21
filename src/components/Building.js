@@ -63,14 +63,14 @@ class Building extends Component{
 
           <div className='mgmt-card'>
           <NavLink to={`/building_mgmts/${this.state.currentMgmtId}`}>
-          <Card raised>
+          <Card raised color='green'>
             <Card.Content>
                {/* <Image floated='right' size='mini' src='/assets/images/avatar/large/steve.jpg' /> */}
                <Card.Header>
                   {this.state.currentMgmt}
                 </Card.Header>
                 <Card.Meta>
-                  add in current rating of mgmt co 
+                  add in current rating of mgmt co
                 </Card.Meta>
                 <Card.Description>
                   add in # of buildings they manage
@@ -80,7 +80,7 @@ class Building extends Component{
         </NavLink>
       </div>
       <div className='rating'>
-        {this.state.currentRating > 0 ? <Modal trigger={<Button color='grey' size='small'>{Math.round(this.state.currentRating*100)/100}/5 stars</Button>}>
+        {this.state.currentRating > 0 ? <Modal trigger={<Button size='small'><Rating defaultRating={Math.round(this.state.currentRating*100)/100} maxRating={5} disabled/>{this.state.currentRating} </Button>}> 
         <Modal.Header>Rating Details</Modal.Header>
         <Modal.Content>
           <Modal.Description>
