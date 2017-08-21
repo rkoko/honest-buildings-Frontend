@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Header, Modal, Segment} from 'semantic-ui-react'
+import {Button, Header, Modal, Segment, Card, Icon, Rating} from 'semantic-ui-react'
 import { NavLink, Route } from 'react-router-dom'
 import  ReviewForm  from '../containers/ReviewForm'
 import BuildingReviews from './BuildingReviews'
@@ -45,35 +45,60 @@ class Building extends Component{
   }
 
   render() {
+    // debugger
     return (
-      <div>
+      <div className='building-page'>
+        <div className='building-hero-image' >
         <Nav handleLogout={this.props.handleLogout}/>
+          <div className='building-hero-text ui container'>
+             <h2>{this.state.currentAddress}</h2>
+             <h4>{this.state.currentNeighborhood}</h4>
+          </div>
+        </div>
         <div className='ui container'>
           <div className='buiding-page-header'>
-          <Segment>  <h2>{this.state.currentAddress}</h2></Segment>
-              <p>{this.state.currentNeighborhood}, city, state, zip</p>
-          </div>
-          <div className='rating'>
-            <p>{Math.round(this.state.currentRating*100)/100}/5 stars
-               <Modal trigger={<Button size='mini'>More</Button>}>
-               <Modal.Header>Rating Details</Modal.Header>
-               <Modal.Content>
-                 <Modal.Description>
-                   <p># of 5 stars</p>
-                   <p># of 4 stars</p>
-                   <p># of 3 stars</p>
-                   <p># of 2 stars</p>
-                   <p># of 1 stars</p>
 
-                 </Modal.Description>
-               </Modal.Content>
-            </Modal>
-            </p>
           </div>
 
-          <p>mgmt: <NavLink to={`/building_mgmts/${this.state.currentMgmtId}`}>{this.state.currentMgmt}</NavLink></p>
 
-          <Modal trigger = {<Button size='small' onClick={() => {this.setState({modalOpen: true})}}>Write a review</Button>} open={this.state.modalOpen}>
+          <div className='mgmt-card'>
+          <NavLink to={`/building_mgmts/${this.state.currentMgmtId}`}>
+          <Card raised>
+            <Card.Content>
+               {/* <Image floated='right' size='mini' src='/assets/images/avatar/large/steve.jpg' /> */}
+               <Card.Header>
+                  {this.state.currentMgmt}
+                </Card.Header>
+                <Card.Meta>
+                  bla
+                </Card.Meta>
+                <Card.Description>
+                  Manages 165 other buildings
+                </Card.Description>
+            </Card.Content>
+          </Card>
+        </NavLink>
+      </div>
+      <div className='rating'>
+        {this.state.currentRating > 0 ? <Modal trigger={<Button color='grey' size='small'>{Math.round(this.state.currentRating*100)/100}/5 stars</Button>}>
+        <Modal.Header>Rating Details</Modal.Header>
+        <Modal.Content>
+          <Modal.Description>
+            <p># of 5 stars</p>
+            <p># of 4 stars</p>
+            <p># of 3 stars</p>
+            <p># of 2 stars</p>
+            <p># of 1 stars</p>
+
+          </Modal.Description>
+        </Modal.Content>
+     </Modal> : null}
+
+
+      </div>
+
+
+          <Modal trigger = {<Button size='small' onClick={() => {this.setState({modalOpen: true})}}>Write a review <Icon circular name='write' /></Button>} open={this.state.modalOpen}>
           <Modal.Header>Rate {this.state.currentAddress}</Modal.Header>
           <Modal.Content>
             <ReviewForm newReviewSubmit={this.newReviewSubmit} building_id={this.state.id} mgmt_id={this.state.currentMgmtId} history={this.props.history} closeModal={() => {this.setState({modalOpen: false})}}/>

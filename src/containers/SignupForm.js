@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Button, Form, Grid } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Icon } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 import AuthAdapter from '../auth/authAdapter'
 
@@ -47,16 +47,20 @@ export default class UserForm extends Component{
         <Grid className='grid' centered columns={3}>
           <Grid.Column>
 
-      <Form onSubmit={this.handleSubmit}>
+      <Form size='large' onSubmit={this.handleSubmit}>
+        <Header as='h2' size='medium'>
+          <Icon name='building outline' />
+          Honest Buildings
+        </Header>
         <Form.Field required>
-          <label>username</label>
+          <label>Username</label>
           <input name="username" placeholder="username"
           type="text"
         onChange={this.handleInputChange} />
         </Form.Field>
 
         <Form.Field required >
-          <label>password</label>
+          <label>Password</label>
           <input name="password" placeholder="password"
           type="password"
         onChange={this.handleInputChange}
@@ -64,7 +68,7 @@ export default class UserForm extends Component{
         </Form.Field>
 
         <Form.Field required>
-          <label>email</label>
+          <label>Email</label>
           <input name="email" placeholder="email"
           type="text"
           onChange={this.handleInputChange}

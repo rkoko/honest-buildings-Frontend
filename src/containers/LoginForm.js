@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Grid, Button, Form } from 'semantic-ui-react'
+import { Grid, Button, Form, Icon, Header } from 'semantic-ui-react'
 
 class LoginForm extends Component {
 
@@ -26,19 +26,24 @@ class LoginForm extends Component {
       <div className='loginform'>
       <Grid className='grid' centered columns={3}>
         <Grid.Column>
-          <Form onSubmit={this.handleSubmit}>
+
+          <Form size='large' onSubmit={this.handleSubmit}>
+            <Header as='h2' size='medium'>
+              <Icon name='building outline' />
+              Honest Buildings
+            </Header>
             <Form.Field required>
               <label>Username</label>
-              <input name='username' placeholder='Username'
+              <input name='username' placeholder='username'
                onChange={this.handleChange} />
             </Form.Field>
             <Form.Field required>
               <label>Password</label>
-              <input type='password' name='password' placeholder='Password'
+              <input type='password' name='password' placeholder='password'
                onChange={this.handleChange}/>
             </Form.Field>
             <Button size='small' type='submit'>Login</Button>
-            <NavLink to="/signup"><Button size='small'>Sign Up</Button></NavLink>
+            <NavLink to="/signup"><Button size='small'>New to us? Sign Up</Button></NavLink>
           </Form>
         </Grid.Column>
       </Grid>

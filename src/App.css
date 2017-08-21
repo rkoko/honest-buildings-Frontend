@@ -16,7 +16,7 @@
 
 .navbar {
    margin-bottom: 1%;
-   background-color: transparent;
+   background-color: transparent !important;
 }
 
 h2 {
@@ -34,7 +34,7 @@ h2 {
 }
 
 .hero-image {
-  background-image: url('./images/window.jpg');
+  background-image: url('./images/chelsea2.jpg');
   height: 700px;
   background-position: center;
   background-repeat: no-repeat;
@@ -64,6 +64,29 @@ h2 {
   color: red;
 }
 
+.building-hero-image {
+  background-image: url('./images/window.jpg');
+  height: 220px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.building-hero-text {
+  color: white;
+  margin-top: 70px !important;
+}
+
+.building-hero-text h2{
+  font-size: 30px;
+}
+
 .searchbar {
   margin-top: 30px;
+}
+
+.mgmt-card {
+  float: right !important;
+  margin-top: -20px;
 }

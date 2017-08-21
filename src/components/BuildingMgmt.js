@@ -37,7 +37,10 @@ componentWillMount(){
         <Nav handleLogout={this.props.handleLogout}/>
         <div className='ui container' >
         <Segment><h2>{this.state.mgmtName}</h2></Segment>
-            <p>{this.state.avg_rating}/5 star rating</p>
+        {this.state.avg_rating > 0 ? <p>{this.state.avg_rating}/5 star rating</p> : <p> No rating yet - would you like to leave a review for one of their buildings? </p>}
+
+
+
             <p>Manages {this.state.buildings.length - 1} other buildings: </p>
             <ul>
               {this.state.buildings.map(building => <li><NavLink to={`/buildings/${building.id}`}>{building.street_address}</NavLink></li>)}
