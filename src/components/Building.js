@@ -109,14 +109,18 @@ class Building extends Component{
             : null }
           </div>
         <div className='rating'>
-          {this.state.currentRating > 0 ? <Modal trigger={<Button size='small'><Rating defaultRating={Math.round(this.state.currentRating*100)/100} maxRating={5} disabled/> {this.state.currentReviews.length}  reviews</Button>}>
+
+          {this.state.currentRating > 0 ?
+            <div>
+            <Rating icon='star' size='huge' defaultRating={Math.round(this.state.currentRating*100)/100} maxRating={5} disabled/>
+             <Modal trigger={<Button size='small'>{this.state.currentReviews.length}  reviews</Button>}>
           <Modal.Header> Current building rating: {this.state.currentRating}/5</Modal.Header>
           <Modal.Content>
             <Modal.Description>
               <HorizontalBar data={data} options={chartOptions}/>
             </Modal.Description>
           </Modal.Content>
-        </Modal> : null}
+        </Modal></div> : null}
       </div>
 
 

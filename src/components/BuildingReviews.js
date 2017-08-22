@@ -12,7 +12,7 @@ const BuildingReviews = (props) =>{
               <Card centered>
                 <Card.Content>
                   <Card.Header>
-                  <Rating defaultRating={review.avg_rating} maxRating={5} disabled/>
+                  <Rating  defaultRating={review.avg_rating} maxRating={5} disabled/>
                   </Card.Header>
                   <Card.Meta>
                     {review.user.username}
@@ -22,9 +22,10 @@ const BuildingReviews = (props) =>{
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <div className='ui two buttons'>
-                    <Button basic color='green'><Icon name='thumbs outline up' /></Button>
-                    <Button basic color='red'><Icon name='thumbs outline down' /></Button>
+                  <div className='field-ratings'>
+                    Upkeep: {review.upkeep_rating}.0 Comms: {review.comms_rating}.0 <br />
+                    Quality: {review.quality_rating}.0 Speed: {review.speedy_rating}.0 <br />
+
                   </div>
               </Card.Content>
               </Card>

@@ -30,8 +30,8 @@ class BuildingMap extends Component{
       <div className='map'>
         <Container style={{width: '100%', height: '400px'}}>
           <GoogleMapReact
-            center={{lat: 40.71, lng: -74.0}}
-            defaultZoom={10}>
+            center={{lat: this.state.lat, lng: this.state.lng}}
+            defaultZoom={15}>
 
             <Balloon lat={this.state.lat} lng={this.state.lng}/>
 

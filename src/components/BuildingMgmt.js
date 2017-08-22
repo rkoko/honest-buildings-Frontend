@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Segment, Grid, Card, Rating } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 import { getMgmtById } from '../apiAdapters/apiAdapters'
+import  MgmtMap  from './MgmtMap'
 import Nav from './nav'
 
 
@@ -43,14 +44,16 @@ componentWillMount(){
         {this.state.avg_rating > 0 ? <p> {this.state.avg_rating}/5 star rating</p> : <p> No rating yet - would you like to leave a review for one of their buildings? </p>}
             <p>Manages {this.state.buildings.length} total buildings: </p>
             <Grid>
-              <Grid.Column width={10}>
+              <Grid.Column width={9}>
                 {this.state.buildings.map(building => <Segment><NavLink to={`/buildings/${building.id}`}>{building.street_address}, {building.neighborhood}</NavLink></Segment>)}
               </Grid.Column>
 
-              <Grid.Column width={4}>
+              <Grid.Column width={6}>
                 <div className='mgmtDetails'>
                 {this.state.mgmtDetails.split("\n").map((line)=>
               <p>{line}</p>)}
+              <MgmtMap />
+
               </div>
               </Grid.Column>
 
