@@ -6,7 +6,7 @@ import { List, Segment } from 'semantic-ui-react'
 function generateNavlink(building) {
   return (
     <Segment>
-      <List divided relaxed>
+      <List divided relaxed key={building.id}>
           <NavLink to={`/buildings/${building.id}`}>
             <List.Item><List.Content>
                 <List.Header>{building.street_address} - {building.neighborhood}</List.Header>

@@ -74,7 +74,6 @@ class Building extends Component{
   }
 
   render() {
-    console.log('state for building:', this.state)
     return (
       <div className='building-page'>
         <div className='building-hero-image' >
