@@ -8,24 +8,24 @@ import { HorizontalBar } from 'react-chartjs-2'
 import BuildingMap from './BuildingMap'
 import Nav from './nav'
 
-const data= {
-  labels: ["5 stars", "4 stars", "3 stars", "2 stars", "1 star"],
-  datasets: [{
-    label: "My First dataset",
-    backgroundColor: 'gray',
-    borderColor: 'rgb(255, 99, 132)',
-    data: [3, 6, 8, 5, 5],
-  }]
-}
-
 const chartOptions = {
-  maintainAspectRatio: false,
+  maintainAspectRatio: true,
   title:{
     display: true,
     text: "Rating Details",
     fontSize: 25,
     position: "top",
     fontColor: "Gray"
+  },
+  scales: {
+    xAxes: [{ticks:
+      {
+        beginAtZero:true,
+        fixedStepSize: 1
+    }
+  }
+  ],
+    yAxes: [{}]
   },
   legend: {
     display: false
@@ -44,6 +44,7 @@ class Building extends Component{
       currentMgmtBuildingsCount: '',
       currentRating: '',
       currentReviews: [],
+      chartData: {},
       modalOpen: false
     }
   }
@@ -57,8 +58,32 @@ class Building extends Component{
       currentMgmt: result.building_mgmt.name,
       currentMgmtBuildingsCount: result.building_mgmt.buildings.length - 1,
       currentRating: result.reviews.length > 0 ? (result.reviews.map(rev => rev.avg_rating).reduce((a, b) => (a + b)) / result.reviews.length) : null,
-      currentReviews: result.reviews}
+      currentReviews: result.reviews
+    }
     ))
+  }
+
+    countRatings(){
+      // debugger
+      let ratings = []
+      ratings = this.state.currentReviews.map(review => review.avg_rating)
+      let count = {}
+      count = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+        ratings.forEach(function(i) {count[i] = (count[i] || 0)+1; })
+        let new_data = []
+       new_data = Object.values(count)
+      let chartData = {
+        labels: ["1 star", "2 stars", "3 stars", "4 stars", "5 stars"],
+        datasets: [{
+          label: "# of reviews",
+          backgroundColor: '#9B97B2',
+          borderColor: 'rgb(255, 99, 132)',
+          data: new_data,
+        }]
+      }
+      this.setState({
+          chartData: chartData
+    })
   }
 
 
@@ -67,6 +92,11 @@ class Building extends Component{
     .map(rev => rev.avg_rating)
     .reduce((a,b) => (a + b)) / this.state.currentReviews.length
   }
+
+  handleClick = () => {
+    this.countRatings()
+  }
+
 
   newReviewSubmit = (review) => {
     this.setState({currentReviews: [review, ...this.state.currentReviews]});
@@ -113,18 +143,18 @@ class Building extends Component{
           {this.state.currentRating > 0 ?
             <div>
             <Rating icon='star' size='huge' defaultRating={Math.round(this.state.currentRating*100)/100} maxRating={5} disabled/>
-             <Modal trigger={<Button size='small'>{this.state.currentReviews.length}  reviews</Button>}>
+             <Modal trigger={<Button size='small' onClick={this.handleClick}> {this.state.currentReviews.length}  reviews</Button>}>
           <Modal.Header> Current building rating: {this.state.currentRating}/5</Modal.Header>
           <Modal.Content>
             <Modal.Description>
-              <HorizontalBar data={data} options={chartOptions}/>
+              <HorizontalBar data={this.state.chartData} options={chartOptions}/>
             </Modal.Description>
           </Modal.Content>
         </Modal></div> : null}
       </div>
 
 
-      <Modal trigger = {<Button size='small' onClick={() => {this.setState({modalOpen: true})}}>Write a review <Icon circular name='write' /></Button>} open={this.state.modalOpen}>
+      <Modal trigger = {<Button size='small'  onClick={() => {this.setState({modalOpen: true})}}> Write a review <Icon circular name='write' /></Button>} open={this.state.modalOpen}>
       <Modal.Header>Rate {this.state.currentAddress}</Modal.Header>
       <Modal.Content>
         <ReviewForm newReviewSubmit={this.newReviewSubmit} building_id={this.state.id} mgmt_id={this.state.currentMgmtId} history={this.props.history} closeModal={() => {this.setState({modalOpen: false})}}/>

@@ -33,7 +33,8 @@ class Home extends Component{
           <Nav handleLogout={this.props.handleLogout}/>
           <div className='ui container'>
               <div className='hero-text' >
-              <h2>Help us guide you home...</h2>
+              <h2>Help us find your home...</h2>
+              <p>Browse and leave real reviews on rentals in NYC</p>
             </div>
               <Search handleSearchSubmit={this.onSearchSubmit}/>
 

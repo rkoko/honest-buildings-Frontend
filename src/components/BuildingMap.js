@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Container, Icon } from 'semantic-ui-react';
 import GoogleMapReact from 'google-map-react';
 
-const Balloon = () => <Icon size='large' name='building'/>;
+const Balloon = () => <Icon size='big' name='building'/>;
 
 class BuildingMap extends Component{
 

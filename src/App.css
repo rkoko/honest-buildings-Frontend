@@ -60,6 +60,11 @@ h2 {
   font-size: 45px;
 }
 
+.hero-text p{
+  font-size: 20px;
+  font-family: 'Lora', serif;
+}
+
 .error-msgs{
   color: red;
 }
