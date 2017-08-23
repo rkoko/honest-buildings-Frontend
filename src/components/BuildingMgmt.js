@@ -16,7 +16,7 @@ class BuildingMgmt extends Component{
       mgmtName: '',
       mgmtDetails: '',
       avg_rating: '',
-      buildings: '',
+      buildings: [],
       reviews: ''
     }
   }
@@ -52,7 +52,7 @@ componentWillMount(){
                 <div className='mgmtDetails'>
                 {this.state.mgmtDetails.split("\n").map((line)=>
               <p>{line}</p>)}
-              <MgmtMap />
+              {this.state.buildings.length > 0 ? <MgmtMap buildings={this.state.buildings}/> : null}
 
               </div>
               </Grid.Column>
