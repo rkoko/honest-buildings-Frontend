@@ -50,7 +50,7 @@ componentWillMount(){
 
               <Grid.Column width={6}>
                 <div className='mgmtDetails'>
-                {this.state.mgmtDetails.split("\n").map((line)=>
+                {this.state.mgmtDetails.split("\n").slice(0, -1).map((line)=>
               <p>{line}</p>)}
               {this.state.buildings.length > 0 ? <MgmtMap buildings={this.state.buildings}/> : null}
 
