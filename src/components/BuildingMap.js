@@ -19,11 +19,29 @@ class BuildingMap extends Component{
     let hood = this.props.neighborhood
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}${hood}&key=AIzaSyBQ4_QuLss7Ku7JwfKTfIwxza1knCbBbCE`)
     .then(data => data.json())
-    .then(data => this.setState({
-      lat: data.results[0].geometry.location.lat,
-      lng: data.results[0].geometry.location.lng
-      }))
+    .then(data => {
+      if(data.results.length > 0){
+        this.setState({
+          lat: data.results[0].geometry.location.lat,
+          lng: data.results[0].geometry.location.lng
+        })
+      }else{
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${hood}&key=AIzaSyBQ4_QuLss7Ku7JwfKTfIwxza1knCbBbCE`)
+        .then(data => data.json())
+        .then(data =>{
+          if (data.results.length > 0){
+            this.setState({
+               lat: data.results[0].geometry.location.lat,
+               lng: data.results[0].geometry.location.lng
+            })
+          }else{
+            this.setState({lat: 40.730610, lng: -73.935242})
+          }
+        })
+      }
+    })
   }
+
 
   render(){
     return(
