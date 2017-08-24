@@ -19,12 +19,25 @@ class MgmtMap extends Component {
     addresses.forEach((address) => {
       fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBQ4_QuLss7Ku7JwfKTfIwxza1knCbBbCE`)
       .then(data => data.json())
-      .then(data => this.setState({
-        latLongs: [...this.state.latLongs, data.results[0].geometry.location]
-      }))
-    })
+      .then(data =>{
+        if(data.results.length > 0){
+          this.setState({ latLongs: [...this.state.latLongs, data.results[0].geometry.location]})
+        }else{
+          fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address[1]}&key=AIzaSyBQ4_QuLss7Ku7JwfKTfIwxza1knCbBbCE`)
+          .then(data => data.json())
+          .then(data => {
+            if (data.results.length >0){
+              this.setState({ latLongs: [...this.state.latLongs, data.results[0].geometry.location]})
+            }else{
+              this.setState({latLongs: [...this.state.latLongs, {lat: 40.730610, lng: -73.935242}]})
+            }
+          })
+        }
+      })
+  })
+}
 
-  }
+
 
   render(){
     return(
