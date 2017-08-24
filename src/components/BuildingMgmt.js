@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Segment, Grid, Card, Rating } from 'semantic-ui-react'
+import { Segment, Grid } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 import { getMgmtById } from '../apiAdapters/apiAdapters'
 import  MgmtMap  from './MgmtMap'

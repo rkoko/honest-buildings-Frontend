@@ -64,21 +64,20 @@ class Building extends Component{
   }
 
     countRatings(){
-      // debugger
-      let ratings = []
-      ratings = this.state.currentReviews.map(review => review.avg_rating)
-      let count = {}
-      count = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
-        ratings.forEach(function(i) {count[i] = (count[i] || 0)+1; })
-        let new_data = []
-       new_data = Object.values(count)
+      // let ratings = []
+      let ratings = this.state.currentReviews.map(review => review.avg_rating)
+      // let count = {}
+      let count = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+        ratings.forEach(function(i) {count[i] = (count[i] || 0) +1; })
+        // let new_data = []
+       let new_data = Object.values(count)
       let chartData = {
-        labels: ["1 star", "2 stars", "3 stars", "4 stars", "5 stars"],
+        labels: ["5 stars", "4 stars","3 stars", "2 stars" ,"1 star"],
         datasets: [{
           label: "# of reviews",
           backgroundColor: '#9B97B2',
           borderColor: 'rgb(255, 99, 132)',
-          data: new_data,
+          data: new_data.reverse(),
         }]
       }
       this.setState({
@@ -144,7 +143,7 @@ class Building extends Component{
             <div>
             <Rating icon='star' size='huge' defaultRating={Math.round(this.state.currentRating*100)/100} maxRating={5} disabled/>
              <Modal trigger={<Button size='small' onClick={this.handleClick}> {this.state.currentReviews.length}  reviews</Button>}>
-          <Modal.Header> Current building rating: {this.state.currentRating}/5</Modal.Header>
+          <Modal.Header> Current building rating: {+this.state.currentRating.toFixed(2)}/5</Modal.Header>
           <Modal.Content>
             <Modal.Description>
               <HorizontalBar data={this.state.chartData} options={chartOptions}/>

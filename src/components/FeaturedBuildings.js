@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Grid, Image } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 
 const FeaturedBuildings = () => (
   <div className='featured-buildings'>

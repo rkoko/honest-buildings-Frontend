@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Grid, Card, Rating, Button, Icon } from 'semantic-ui-react'
+import {  Grid, Card, Rating } from 'semantic-ui-react'
 
 const BuildingReviews = (props) =>{
   return(props.currentReviews.length > 0 ?
@@ -9,7 +9,7 @@ const BuildingReviews = (props) =>{
         <Grid.Column width={15}>
           <Card.Group itemsPerRow={3}>
             {props.currentReviews.map(review=>(
-              <Card centered>
+              <Card centered key={review.id}>
                 <Card.Content>
                   <Card.Header>
                   <Rating  defaultRating={review.avg_rating} maxRating={5} disabled/>
@@ -32,7 +32,6 @@ const BuildingReviews = (props) =>{
             ))}
           </Card.Group>
         </Grid.Column>
-        {/* <Grid.Column width={4}></Grid.Column> */}
       </Grid>
     </div>
     : <div> No reviews have been written yet.....</div>

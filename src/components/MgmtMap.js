@@ -14,7 +14,7 @@ class MgmtMap extends Component {
   }
 
   componentWillMount(){
-    let addresses = this.props.buildings.map(building => building.street_address + ' '+ building.neighborhood)
+    let addresses = this.props.buildings.slice(0, 20).map(building => building.street_address + ' '+ building.neighborhood)
 
     addresses.forEach((address) => {
       fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBQ4_QuLss7Ku7JwfKTfIwxza1knCbBbCE`)
@@ -27,7 +27,6 @@ class MgmtMap extends Component {
   }
 
   render(){
-
     return(
       this.state.latLongs.length > 0 ? <Container style={{width: '100%', height: '400px'}}>
         <GoogleMapReact
