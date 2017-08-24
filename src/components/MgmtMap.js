@@ -36,9 +36,6 @@ class MgmtMap extends Component {
       })
   })
 }
-
-
-
   render(){
     return(
       this.state.latLongs.length > 0 ? <Container style={{width: '100%', height: '400px'}}>
