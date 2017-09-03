@@ -16,7 +16,7 @@ As a user, I can (upon signing up/logging in):
   * ReactJS
   * Semantic UI React
   * [Google Maps API ](https://www.npmjs.com/package/google-map-react)
-  * [Google Maps Geocode API] (https://developers.google.com/maps/documentation/geocoding/intro)
+  * [Google Maps Geocode API ](https://developers.google.com/maps/documentation/geocoding/intro)
   * ChartJS
 
 **Server**
