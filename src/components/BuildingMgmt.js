@@ -41,7 +41,7 @@ componentWillMount(){
         <Nav handleLogout={this.props.handleLogout}/>
         <div className='ui container' >
         <Segment><h2>{this.state.mgmtName}</h2></Segment>
-        {this.state.avg_rating > 0 ? <p> {this.state.avg_rating}/5 star rating</p> : <p> No rating yet - would you like to leave a review for one of their buildings? </p>}
+        {this.state.avg_rating > 0 ? <p> Cumulative avg: {this.state.avg_rating}/5 star rating</p> : <p> No rating yet - would you like to leave a review for one of their buildings? </p>}
             <p>Manages {this.state.buildings.length} total buildings: </p>
             <Grid>
               <Grid.Column width={9}>

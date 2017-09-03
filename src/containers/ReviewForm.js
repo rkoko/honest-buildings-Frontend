@@ -66,7 +66,6 @@ class ReviewForm extends Component {
 
 
   render() {
-    console.log(this.state)
     return (
       <div>
       <p>Your review helps others learn about the building and how it's being managed. This is a source for potential residents and current residents so please do not write a review if you are connected with the building management firm. </p>
