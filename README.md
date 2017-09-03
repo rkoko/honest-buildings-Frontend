@@ -11,18 +11,6 @@ As a user, I can (upon signing up/logging in):
 
 * View a building management's profile, which includes contact info on the management company, application fee, list of all buildings under its management (along with a map view of its buildings), and its cumulative average rating.
 
-##Entity Relationship Diagram
-![Image of ERD Diagram](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/erd.png)
-
-
-## Wireframes
-
-* ![Wireframe1](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/wireframe1.png)
-
-* ![Wireframe2](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/wireframe2.png)
-
-* ![Wireframe3](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/wireframe3.png)
-
 ## Technologies/Libraries Used
 **Client**
   * ReactJS
@@ -35,3 +23,16 @@ As a user, I can (upon signing up/logging in):
   * Ruby on Rails
   * Postgres SQL
   * Nokogiri
+
+
+## Entity Relationship Diagram
+![Image of ERD Diagram](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/erd.png)
+
+
+## Wireframes
+
+ ![Wireframe1](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/wireframe1.png)
+
+ ![Wireframe2](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/wireframe2.png)
+
+ ![Wireframe3](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/wireframe3.png)
