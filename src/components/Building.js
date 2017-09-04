@@ -64,13 +64,10 @@ class Building extends Component{
   }
 
     countRatings(){
-      // let ratings = []
       let ratings = this.state.currentReviews.map(review => review.avg_rating)
-      // let count = {}
       let count = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
-        ratings.forEach(function(i) {count[i] = (count[i] || 0) +1; })
-        // let new_data = []
-       let new_data = Object.values(count)
+        ratings.forEach((i) => {count[i] = (count[i] || 0) +1; })
+      let new_data = Object.values(count)
       let chartData = {
         labels: ["5 stars", "4 stars","3 stars", "2 stars" ,"1 star"],
         datasets: [{
