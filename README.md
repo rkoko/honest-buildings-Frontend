@@ -11,6 +11,9 @@ As a user, I can (upon signing up/logging in):
 
 * View a building management's profile, which includes contact info on the management company, application fee, list of all buildings under its management (along with a map view of its buildings), and its cumulative average rating.
 
+## How to use
+Please visit [the deployed site](https://honest-buildings.herokuapp.com/) and sign up!
+
 ## Technologies/Libraries Used
 **Client**
   * ReactJS
