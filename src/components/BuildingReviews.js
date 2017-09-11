@@ -4,7 +4,6 @@ import {  Grid, Card, Rating } from 'semantic-ui-react'
 const BuildingReviews = (props) =>{
   return(props.currentReviews.length > 0 ?
     <div className='review-list'>
-
       <Grid>
         <Grid.Column width={15}>
           <Card.Group itemsPerRow={3}>
@@ -25,7 +24,6 @@ const BuildingReviews = (props) =>{
                   <div className='field-ratings'>
                     Upkeep: {review.upkeep_rating}.0 Comms: {review.comms_rating}.0 <br />
                     Quality: {review.quality_rating}.0 Speed: {review.speedy_rating}.0 <br />
-
                   </div>
               </Card.Content>
               </Card>

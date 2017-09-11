@@ -66,7 +66,7 @@ class Building extends Component{
     countRatings(){
       let ratings = this.state.currentReviews.map(review =>Math.round(review.avg_rating))
       let count = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
-        ratings.forEach((i) => {count[i] = (count[i] || 0) +1; }, console.log(count))
+        ratings.forEach((i) => {count[i] = (count[i] || 0) +1; })
       let new_data = Object.values(count)
       let chartData = {
         labels: ["5 stars", "4 stars","3 stars", "2 stars" ,"1 star"],
@@ -100,6 +100,21 @@ class Building extends Component{
   }
 
   render() {
+    const currentRating = this.state.currentRating
+    let stars = null;
+      if(currentRating > 0){
+        stars = <div>
+            <Rating icon='star' size='huge' defaultRating={Math.round(this.state.currentRating*100)/100} maxRating={5} disabled/>
+            <Modal trigger={<Button size='small' onClick={this.handleClick}> {this.state.currentReviews.length}  reviews</Button>}>
+            <Modal.Header> Current building rating: {+this.state.currentRating.toFixed(2)}/5</Modal.Header>
+            <Modal.Content>
+              <Modal.Description>
+                <HorizontalBar data={this.state.chartData} options={chartOptions}/>
+              </Modal.Description>
+            </Modal.Content>
+          </Modal></div>
+      }
+      
     return (
       <div className='building-page'>
         <div className='building-hero-image' >
@@ -136,17 +151,7 @@ class Building extends Component{
           </div>
         <div className='rating'>
 
-          {this.state.currentRating > 0 ?
-            <div>
-            <Rating icon='star' size='huge' defaultRating={Math.round(this.state.currentRating*100)/100} maxRating={5} disabled/>
-             <Modal trigger={<Button size='small' onClick={this.handleClick}> {this.state.currentReviews.length}  reviews</Button>}>
-          <Modal.Header> Current building rating: {+this.state.currentRating.toFixed(2)}/5</Modal.Header>
-          <Modal.Content>
-            <Modal.Description>
-              <HorizontalBar data={this.state.chartData} options={chartOptions}/>
-            </Modal.Description>
-          </Modal.Content>
-        </Modal></div> : null}
+          {currentRating > 0 ? stars: null}
       </div>
 
 
