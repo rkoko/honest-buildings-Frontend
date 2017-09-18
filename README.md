@@ -22,15 +22,7 @@ Please visit [the deployed site](https://honest-buildings.herokuapp.com/) and si
   * [Google Maps Geocode API ](https://developers.google.com/maps/documentation/geocoding/intro)
   * ChartJS
 
-**Server**
-  * Ruby on Rails
-  * Postgres SQL
-  * Nokogiri
-
-
-## Entity Relationship Diagram
-![Image of ERD Diagram](https://github.com/rkoko/honest-buildings-Frontend/blob/master/public/erd.png)
-
+**[Server]**(https://github.com/rkoko/honest-buildings-API)
 
 ## Wireframes
 
