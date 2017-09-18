@@ -22,7 +22,7 @@ Please visit [the deployed site](https://honest-buildings.herokuapp.com/) and si
   * [Google Maps Geocode API ](https://developers.google.com/maps/documentation/geocoding/intro)
   * ChartJS
 
-**[Server]**(https://github.com/rkoko/honest-buildings-API)
+[**Server**](https://github.com/rkoko/honest-buildings-API)
 
 ## Wireframes
 
