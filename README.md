@@ -1,4 +1,4 @@
-# Project Title
+# Honest-Buildings
 
 Honest-Buildings is a web app built for NYC renters to rate and review their buildings and respective building managers. Think of it like a yelp for rental buildings in the city and as a way to bring some transparency to renters in the city with ever rising rent prices.
 
