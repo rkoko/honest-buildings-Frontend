@@ -6,12 +6,10 @@ const Balloon = () => <Icon size='large' name='building outline'/>;
 
 
 class MgmtMap extends Component {
-  constructor(props){
-    super()
-      this.state={
+  state={
         latLongs: []
-      }
-  }
+    }
+
 
   componentWillMount(){
     let addresses = this.props.buildings.slice(0, 20).map(building => building.street_address + ' '+ building.neighborhood)

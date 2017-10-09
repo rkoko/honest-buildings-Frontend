@@ -6,13 +6,11 @@ const Balloon = () => <Icon size='big' name='building'/>;
 
 class BuildingMap extends Component{
 
-  constructor(props){
-    super()
-    this.state={
+  state={
       lat: 0,
       lng: 0
     }
-  }
+
 
   componentWillMount() {
     let address = this.props.address

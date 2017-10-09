@@ -33,9 +33,7 @@ const chartOptions = {
 }
 
 class Building extends Component{
-  constructor(props) {
-    super()
-    this.state={
+  state={
       id: window.location.pathname.split("/")[2],
       currentAddress: '',
       currentNeighborhood: '',
@@ -47,7 +45,7 @@ class Building extends Component{
       chartData: {},
       modalOpen: false
     }
-  }
+
 
   componentWillMount() {
     getBuildingById(this.state.id)
@@ -114,7 +112,7 @@ class Building extends Component{
             </Modal.Content>
           </Modal></div>
       }
-      
+
     return (
       <div className='building-page'>
         <div className='building-hero-image' >

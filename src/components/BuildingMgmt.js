@@ -7,11 +7,7 @@ import Nav from './nav'
 
 
 class BuildingMgmt extends Component{
-  constructor(props){
-    super(props)
-
-
-    this.state={
+  state={
       id: window.location.pathname.split("/")[2],
       mgmtName: '',
       mgmtDetails: '',
@@ -19,7 +15,7 @@ class BuildingMgmt extends Component{
       buildings: [],
       reviews: ''
     }
-  }
+  
 
 
 componentWillMount(){

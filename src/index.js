@@ -7,4 +7,3 @@ import './App.css';
 
 
 ReactDOM.render(<App />, document.getElementById('root'))
-//should router be placed here or in app.js?

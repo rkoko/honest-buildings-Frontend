@@ -18,15 +18,14 @@ class App extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
-  constructor(props){
-    super(props)
-    this.state = {
+
+  state = {
       auth: {
         isLoggedIn: false,
         user: ''
       }
     }
-  }
+
   onLogin = (loginParams) => {
   AuthAdapter.login(loginParams)
     .then( res => {
@@ -42,8 +41,6 @@ class App extends Component {
           }
         })
       }
-      //if error render login again
-      //else set the jwt token and forward user to /giphs
     })
   }
 
@@ -63,7 +60,7 @@ AuthAdapter.signUp(signUpParams)
       })
     }
     //if error render login again
-    //else set the jwt token and forward user to /giphs
+    //else set the jwt token
   })
 }
 
