@@ -22,14 +22,10 @@ class LoginForm extends Component {
 
 
   render () {
-    console.log("props", this.props)
     return (
       <div className='loginform'>
-
       <Grid className='grid' centered columns={3}>
-
         <Grid.Column>
-
           <Form size='large' onSubmit={this.handleSubmit}>
             <Header as='h2' size='medium'>
               <Icon name='building outline' />

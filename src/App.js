@@ -77,7 +77,6 @@ handleLogout = () => {
 }
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <Router history={history}>
