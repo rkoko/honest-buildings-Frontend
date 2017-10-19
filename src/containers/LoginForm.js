@@ -22,9 +22,12 @@ class LoginForm extends Component {
 
 
   render () {
+    console.log("props", this.props)
     return (
       <div className='loginform'>
+
       <Grid className='grid' centered columns={3}>
+
         <Grid.Column>
 
           <Form size='large' onSubmit={this.handleSubmit}>
@@ -32,6 +35,7 @@ class LoginForm extends Component {
               <Icon name='building outline' />
               Honest Buildings
             </Header>
+            {this.props.errorMsg !== '' ? <p>{this.props.errorMsg}</p>: null}
             <Form.Field required>
               <label>Username</label>
               <input name='username' placeholder='username'
@@ -47,6 +51,7 @@ class LoginForm extends Component {
           </Form>
         </Grid.Column>
       </Grid>
+
     </div>
     )
   }
