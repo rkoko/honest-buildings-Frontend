@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { List, Segment } from 'semantic-ui-react'
-
+import { List, Segment, Grid } from 'semantic-ui-react'
+import Nav from '../components/nav'
 
 function generateNavlink(building) {
   return (
@@ -17,14 +17,23 @@ function generateNavlink(building) {
   )
 }
 
-const BuildingList = ({buildings}) => {
-
+const BuildingList = (props) => {
+let buildings = props.history.location.state.buildings
   return (
-    <div>
-      <ul>
-        {buildings.map(building => (generateNavlink(building)))}
-      </ul>
+  <div>
+    <Nav handleLogout={props.handleLogout}/>
+    <div className='ui container' >
+      <Segment><h2>Results:</h2></Segment>
+      <Grid>
+        <Grid.Column width={16}>
+          <ul>
+            {buildings.map(building => (generateNavlink(building)))}
+          </ul>
+        </Grid.Column>
+      </Grid>
+
     </div>
+  </div>
   )
 }
 

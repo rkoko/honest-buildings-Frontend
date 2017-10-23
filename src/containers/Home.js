@@ -4,6 +4,8 @@ import Nav from '../components/nav'
 import FeaturedBuildings from '../components/FeaturedBuildings'
 import BuildingList from '../components/BuildingList'
 import { getBuildingAddresses } from '../apiAdapters/apiAdapters'
+import { Redirect } from 'react-router-dom'
+
 
 
 class Home extends Component{
@@ -21,8 +23,8 @@ class Home extends Component{
     this.setState({
       searchResults: this.state.buildings.filter(building => building.street_address.toLowerCase().includes(searchTerm.toLowerCase()) || building.neighborhood.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    })
-  }
+  })
+}
 
 
   render() {
@@ -45,7 +47,10 @@ class Home extends Component{
                 <br/>
                 <br/>
                 <br/>
-                <BuildingList buildings={this.state.searchResults}/>
+                {this.state.searchResults.length >0 && <Redirect to={{pathname: '/home/results', state:{
+                  buildings: this.state.searchResults
+                }}} /> }
+                {/* <BuildingList buildings={this.state.searchResults}/> */}
                 <FeaturedBuildings />
               </div>
       </div>

@@ -7,6 +7,7 @@ import AuthAdapter from './auth/authAdapter'
 import Building from './components/Building'
 import BuildingMgmt from './components/BuildingMgmt'
 import {Router, Route, Redirect, Switch } from 'react-router-dom'
+import BuildingList from './components/BuildingList'
 import Home from './containers/Home'
 import createBrowserHistory from 'history/createBrowserHistory'
 import PropTypes from 'prop-types'
@@ -85,6 +86,7 @@ handleLogout = () => {
               <Route exact path="/" render={()=> this.state.auth.isLoggedIn ? <Redirect to="/home" /> : <LoginForm onLogin={this.onLogin} errorMsg={this.state.errorMsg}/>} />
               <Route path="/signup" render={() => <SignupForm /> }/>
               <Route path="/mgmt-signup" render={()=> <MgmtForm />} />
+              <Route path="/home/results" component={Auth(BuildingList, {history: history, handleLogout: this.handleLogout})}/>
               <Route path="/buildings/:id" component={Auth(Building, {history: history, handleLogout: this.handleLogout})}/>
               <Route path="/building_mgmts/:id" component={Auth(BuildingMgmt, {handleLogout: this.handleLogout})}/>
               <Route path="/home" component={Auth(Home, {handleLogout: this.handleLogout})} />
