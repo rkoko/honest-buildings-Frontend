@@ -25,6 +25,7 @@ export default class Search extends Component {
       <Input
         className='searchbar'
         fluid icon='search'
+        iconPosition='left'
         size='massive'
         placeholder='Search a neighborhood in NYC'
         type="text"
